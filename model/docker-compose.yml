@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+   web-service:
+     depends_on:
+       - model-service
+     image: innovad/djl-serving-consumer:0.0.1
+     ports:
+       - "80:8082"
+     restart: always
+
+   model-service:
+     image: innovad/djl-serving:0.19.0
+     restart: always
