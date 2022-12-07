@@ -43,10 +43,7 @@ public class ConsumerController {
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
-        System.out.println(result);
-        System.out.println(result);
-
-        return "dummy";
+        return result;
     }
 
 }
