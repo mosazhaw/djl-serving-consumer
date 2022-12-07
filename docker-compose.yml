@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+   model-service:
+     image: deepjavalibrary/djl-serving:0.19.0
+     volumes:
+      - ./models:/opt/ml/model
+     restart: always
+
+   web-service:
+     depends_on:
+       - model-service
+     image: mosa-zhaw/djl-serving-consumer
+     ports:
+       - "9000:8082"
+     restart: always
