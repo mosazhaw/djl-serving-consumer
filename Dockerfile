@@ -1,3 +1,5 @@
+# docker build -t mosazhaw/djl-serving-consumer .
+
 FROM openjdk:21-jdk-slim
 
 # Copy Files
