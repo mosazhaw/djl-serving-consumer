@@ -1,5 +1,3 @@
-version: '3.3'
-
 services:
    web-service:
      depends_on:
@@ -11,4 +9,6 @@ services:
 
    model-service:
      image: mosazhaw/djl-serving:latest
+     ports:
+       - "8080:8080"
      restart: always
