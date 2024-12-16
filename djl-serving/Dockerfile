@@ -1,4 +1,5 @@
 # docker build -t mosazhaw/djl-serving:latest .
+# docker push mosazhaw/djl-serving:latest
 
 # TODO later versions not working
 FROM deepjavalibrary/djl-serving:0.31.0
