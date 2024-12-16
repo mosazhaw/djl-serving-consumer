@@ -31,18 +31,17 @@ function checkFiles(files) {
         headers: {
         },
         body: formData
-    }).then(
-        response => {
-            console.log(response)
-            response.text().then(function (text) {
-                answer.innerHTML = text;
-            });
-
-        }
-    ).then(
-        success => console.log(success)
-    ).catch(
-        error => console.log(error)
-    );
-
+    }).then(response => {
+        return response.json(); // Parse the response as JSON
+    }).then(data => {
+        console.log(data);
+        let table = '<table border="1"><tr><th>Class Name</th><th>Probability</th></tr>';
+        data.forEach(item => {
+            table += `<tr><td>${item.className}</td><td>${item.probability}</td></tr>`;
+        });
+        table += '</table>';
+        document.getElementById('answer').innerHTML = table;
+    }).catch(error => {
+        console.log(error);
+    });
 }
