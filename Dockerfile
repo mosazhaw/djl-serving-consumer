@@ -9,6 +9,8 @@ COPY .mvn .mvn
 COPY pom.xml mvnw ./
 
 # Install
+RUN sed -i 's/\r$//' mvnw
+RUN chmod +x mvnw
 RUN ./mvnw -Dmaven.test.skip=true package
 
 # Docker Run Command
